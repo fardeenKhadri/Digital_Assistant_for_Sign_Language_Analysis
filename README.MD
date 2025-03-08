@@ -1,97 +1,81 @@
-# Digital Assistant for Sign Language Analysis
+# **DASA: Digital Assistant for Sign Language Analysis**  
 
-## Description
-This project leverages **MediaPipe Holistic** and a **TensorFlow LSTM neural network** to recognize gestures in real-time from video input captured via a webcam. The application is designed for gesture recognition and can be extended to applications such as **sign language translation** and **human-computer interaction**.
+DASA is a real-time sign language recognition system that uses **MediaPipe**, **OpenCV**, and a trained deep learning model to classify hand gestures into predefined actions.  
+
+## **Features**  
+- Recognizes **21 different sign language gestures**  
+- Uses **MediaPipe Holistic** for hand landmark detection  
+- Displays **real-time FPS** for performance monitoring  
+- **Custom visualization** for detected gestures  
 
 ---
 
-## Installation
+## **Installation & Setup**  
 
-### Prerequisites
-Ensure you have the following installed:
-- Python **3.8 or above**
-- TensorFlow **2.4.1**
-- OpenCV
-- MediaPipe
-- NumPy
-- Matplotlib
+### **1. Clone the Repository**  
+```sh
+git clone https://github.com/fardeenKhadri/Digital_Assistant_for_Sign_Language_Analysis.git
+cd Digital_Assistant_for_Sign_Language_Analysis
+```
 
-### Setup Environment
-Run the following command to install the required dependencies:
+### **2. Install Dependencies**  
+Requires **Python 3.7+**. Install necessary libraries:  
+```sh
+pip install opencv-python numpy tensorflow mediapipe
+```
 
-```bash
-pip install tensorflow==2.4.1 tensorflow-gpu==2.4.1 opencv-python mediapipe sklearn matplotlib
+### **3. Place the Trained Model**  
+Ensure the trained model file **`dasa.keras`** is in the project directory.  
+
+### **4. Run the Application**  
+```sh
+python dasa.py
 ```
 
 ---
 
-## Usage
-
-1. **Start the application**: Run the main Python script to initiate gesture recognition:
-   ```bash
-   python path/to/script/dasa.py
-   ```
-
-2. **Perform gestures**: The application will use the webcam to capture and analyze gestures.
-
-3. **View predictions**: The detected gesture will be displayed on the video feed in real-time.
+## **How It Works**  
+1. Captures live video from the webcam  
+2. **MediaPipe Holistic** detects hand landmarks  
+3. Extracted keypoints are fed into the trained **deep learning model**  
+4. Recognized gestures are displayed on the screen  
+5. FPS (Frames Per Second) is shown for monitoring  
 
 ---
 
-## Features
-
-✅ **Real-time gesture detection** – Uses MediaPipe for detecting and tracking hand and pose landmarks.  
-✅ **Gesture classification** – Trained LSTM model classifies gestures from extracted keypoints.  
-✅ **Custom dataset support** – Add and train additional gestures for enhanced recognition.  
-✅ **Visual feedback** – Displays detected gestures in the video feed.
-
----
-
-## Custom Dataset Creation
-
-If you want to create a custom dataset for training new gestures:
-
-1. Open and run the `main.ipynb` notebook.
-2. Modify the dataset folder path to include your custom gestures.
-3. Train the model on the new dataset.
-4. Save and use the updated model for real-time recognition.
+## **Recognized Gestures**  
+The model detects the following **21 hand gestures**:  
+```
+friend, love, more, pain, play, stand, stop, what, front, right, left, 
+up, down, now, eat, drink, super, hug, me, name, hello
+```
 
 ---
 
-## Files and Scripts
-
-- **`dasa.py`** – Main script for gesture detection.  
-- **`main.ipynb`** – Jupyter Notebook for dataset creation and model training.  
-- **`dasa.keras`** – Pre-trained model for gesture recognition.  
-- **`MP_Data/`** – Directory storing gesture keypoints for training.  
+## **Controls**  
+- **Press 'Q'** – Quit the application  
 
 ---
 
-## Contributing
+## **Troubleshooting**  
+**1. `FileNotFoundError: dasa.keras not found`**  
+   → Ensure `dasa.keras` is in the same directory as `dasa.py`.  
 
-Contributions are welcome! Follow these steps:
+**2. Camera not opening / Black screen**  
+   → Check if another application is using the webcam. Restart if needed.  
 
-1. **Fork** the repository.  
-2. **Create a new branch**:  
-   ```bash
-   git checkout -b feature-branch
-   ```
-3. **Commit your changes**:  
-   ```bash
-   git commit -am "Added new feature"
-   ```
-4. **Push to the branch**:  
-   ```bash
-   git push origin feature-branch
-   ```
-5. **Open a Pull Request**.
+**3. Low FPS**  
+   → Close background apps or reduce OpenCV resolution.  
 
 ---
 
-## License
+## **Future Improvements**  
+- Support for **more gestures**  
+- Optimize **real-time performance**  
 
-This project is open-source and available under the **MIT License**.  
+---
 
----  
+## **License**  
+This project is **open-source** under the MIT License. Contributions are welcome.  
 
-For any issues or feature requests, please raise an **issue** on GitHub. 🚀
+---
